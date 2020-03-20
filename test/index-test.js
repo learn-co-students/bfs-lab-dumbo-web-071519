@@ -17,7 +17,6 @@ beforeEach(function() {
 	  {name: '34th&6th', distance: null, predecessor: null},
 	  {name: '23rd&6th', distance: null, predecessor: null},
 		{name: '28th&Bwy', distance: null, predecessor: null},
-
 	  {name: '14th&6th', distance: null, predecessor: null},
 	  {name: '23rd&Bwy', distance: null, predecessor: null},
 	  {name: '14th&Lex', distance: null, predecessor: null},
@@ -47,15 +46,16 @@ describe('#findAdjacent', function() {
 describe('#markDistanceAndPredecessor', function() {
   it("should return an array of adjacent nodes", function() {
     let twentyThirdAndSixth = vertices[1]
-    let twentyEighthAndBroadway = vertices[4]
+    let twentyThirdAndBroadway = vertices[4]
     let thirtyFourthAndSixth = vertices[0]
-    let adjacentNodes = [twentyThirdAndSixth, twentyEighthAndBroadway]
+    let adjacentNodes = [twentyThirdAndSixth, twentyThirdAndBroadway]
 
     markDistanceAndPredecessor(thirtyFourthAndSixth, adjacentNodes)
 
     expect(twentyThirdAndSixth.distance).toEqual(1)
-    expect(twentyEighthAndBroadway.distance).toEqual(1)
-    expect(twentyEighthAndBroadway.predecessor).toEqual(thirtyFourthAndSixth)
+		expect(twentyThirdAndSixth.predecessor).toEqual(thirtyFourthAndSixth)
+    expect(twentyThirdAndBroadway.distance).toEqual(1)
+    expect(twentyThirdAndBroadway.predecessor).toEqual(thirtyFourthAndSixth)
   });
 });
 
